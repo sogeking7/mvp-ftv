@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 import MyHeader from '@/components/MyHeader.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import MyButton from '@/components/UI/MyButton.vue'
-import MyModal from '@/components/UI/MyModal.vue'
 import MobileModal from '@/components/MobileModal/MobileModal.vue'
 import { films } from '@/data'
 import { isMobile } from '@/helper'
 import KaspiModal from '../components/KaspiModal/KaspiModal.vue'
-import { onMounted } from 'vue';
 
 const id = useRouter().currentRoute.value.params.id
 const data = films.filter((v) => v.id === +id)[0]
@@ -47,19 +45,21 @@ const movieDetails = [
 const readMoreActivated = ref(false)
 
 onMounted(() => {
-  const video = document.querySelector('video');
+  const video = document.querySelector('video')
   if (video) {
-    const promise = video.play();
+    const promise = video.play()
     if (promise !== undefined) {
-      promise.catch(error => {
-        // Auto-play was prevented
-        // Show a UI element to let the user manually start playback
-      }).then(() => {
-        // Auto-play started
-      });
+      promise
+        .catch((error) => {
+          // Auto-play was prevented
+          // Show a UI element to let the user manually start playback
+        })
+        .then(() => {
+          // Auto-play started
+        })
     }
   }
-});
+})
 </script>
 
 <template>
@@ -206,6 +206,6 @@ onMounted(() => {
 <style scoped>
 .overlay {
   background: rgb(0 0 0 / 70%);
-  background-image: linear-gradient(to bottom, #12121200, #1212121a, #000);
+  background-image: linear-gradient(#000, #ffffff00, #000);
 }
 </style>

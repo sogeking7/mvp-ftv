@@ -7,7 +7,7 @@ defineProps(['data'])
 <template>
   <div class="flex flex-col">
     <router-link :to="`/films/${data.id}`">
-      <img :src="data.img" class="mb-3 lg:mb-5 xl:mb-6 cursor-pointer w-full" />
+      <img :src="data.img" class="mb-3 lg:mb-5 xl:mb-6 cursor-pointer rounded-lg w-full" />
     </router-link>
     <p class="lg:text-xl xl:text-2xl font-bold mb-1 lg:mb-2 xl:mb-3 text-white cursor-pointer">
       <router-link :to="`/films/${data.id}`" class="hover:underline">
