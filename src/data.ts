@@ -29,7 +29,7 @@ export const films = [
       'Биржан Чопбаев',
       'Жалгас Кабдолов'
     ],
-    promo: '/video/film1.webm',
+    promo: '/video/film1.mp4',
     code: '0001'
   },
   {
@@ -51,7 +51,7 @@ export const films = [
       'Русские'
     ],
     actorsList: ['Рамазан Амантай', 'Аян Отепберген', 'Роза Мукатаева', 'Куандык Шакиржанов'],
-    promo: '/video/film3.webm',
+    promo: '/video/film3.mp4',
     code: '0003'
   },
   {
@@ -82,7 +82,7 @@ export const films = [
       'Мерей Аджибеков',
       'Бекарыс Ахметов'
     ],
-    promo: '/video/film4.webm',
+    promo: '/video/film4.mp4',
     code: '0004'
   },
   {
@@ -116,7 +116,7 @@ export const films = [
       'Сануржан Сулейменов',
       'Жан Оспанов'
     ],
-    promo: '/video/film2.webm',
+    promo: '/video/film2.mp4',
     code: '0002'
   }
 ]

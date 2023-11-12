@@ -166,7 +166,7 @@ onMounted(() => {
       </div>
     </div>
     <video playsinline autoplay muted loop class="absolute top-0 left-0 object-cover w-full h-full">
-      <source :src="data.promo" type="video/webm" />
+      <source :src="data.promo" type="video/mp4" />
     </video>
   </div>
   <div class="bg-[#000] overf py-12" id="main">
