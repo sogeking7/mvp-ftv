@@ -23,7 +23,7 @@ onMounted(updateNumbers)
   <div class="bg-transparent w-full">
     <div class="container flex justify-between items-center mx-auto px-4 py-3">
       <router-link to="/">
-        <img src="/g/logo.svg" class="w-[70px] sm:w-20 md:w-28" />
+        <img src="/g/logo.gif" class="w-[70px] sm:w-20 md:w-28" />
       </router-link>
       <div class="flex items-center gap-10">
         <div v-if="route === 'films'">

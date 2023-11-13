@@ -31,7 +31,7 @@ onReady((event) => {
   <div class="bg-[#000] h-[100vh] text-white">
     <div class="container flex justify-between items-center mx-auto px-4 py-3" ref="el">
       <router-link to="/">
-        <img src="/g/logo.svg" class="w-[70px] sm:w-20 md:w-28" />
+        <img src="/g/logo.gif" class="w-[70px] sm:w-20 md:w-28" />
       </router-link>
     </div>
     <div

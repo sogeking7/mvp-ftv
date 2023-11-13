@@ -28,7 +28,7 @@ function handlePlayBtn() {
   >
     <div class="container items-center mx-auto px-4 py-3">
       <img
-        src="/g/logo.svg"
+        src="/g/logo.gif"
         class="cursor-pointer w-[70px] sm:w-20 md:w-28"
         @click="$emit('update:modelValue')"
       />
