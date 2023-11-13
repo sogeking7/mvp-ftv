@@ -9,6 +9,8 @@ import MobileModal from '@/components/MobileModal/MobileModal.vue'
 import { films } from '@/data'
 import { isMobile } from '@/helper'
 import KaspiModal from '../components/KaspiModal/KaspiModal.vue'
+import DesktopModal from '../components/DesktopModal/DesktopModal.vue'
+import MyModal from '../components/UI/MyModal.vue'
 
 const id = useRouter().currentRoute.value.params.id
 const data = films.filter((v) => v.id === +id)[0]
@@ -16,6 +18,7 @@ const data = films.filter((v) => v.id === +id)[0]
 document.title = data.title
 
 const isModalOpen = ref(false)
+const isCodeModalOpen = ref(false)
 
 const openModal = () => {
   isModalOpen.value = true
@@ -84,7 +87,7 @@ onMounted(() => {
   <div class="relative w-full" id="hero">
     <div class="absolute w-full top-0 z-10 h-full overlay"></div>
     <div class="relative z-20">
-      <MyHeader @update:model-value="handleBuyBtn" />
+      <MyHeader @update:model-value="isCodeModalOpen = true" />
       <div
         :class="{
           'h-[calc(100vh-74px)] sm:h-[calc(100vh-81.15px)] md:h-[calc(100vh-104px)]':
@@ -201,6 +204,9 @@ onMounted(() => {
     </div>
   </div>
   <MyFooter />
+  <MyModal :model-value="isCodeModalOpen" @update:model-value="isCodeModalOpen = false">
+    <DesktopModal />
+  </MyModal>
 </template>
 
 <style scoped>
