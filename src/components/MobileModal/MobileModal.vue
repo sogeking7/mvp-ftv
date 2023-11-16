@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import MyButton from '@/components/UI/MyButton.vue'
+import { useRoute } from 'vue-router'
 
-defineProps(['modelValue', 'data'])
+const props = defineProps(['modelValue', 'data', 'payedTv', 'payedMobile'])
 defineEmits(['update:modelValue'])
 
 const kaspiPay = ref(false)
@@ -11,6 +12,12 @@ const paymentMobile = ref(false)
 const loadingTv = ref(false)
 const loadingMobile = ref(false)
 const loadingKaspi = ref(false)
+
+onMounted(() => {
+  kaspiPay.value = props.payedTv || props.payedMobile
+  paymentTv.value = props.payedTv
+  paymentMobile.value = props.payedMobile
+})
 
 function handleTVBtn() {
   loadingTv.value = true
@@ -32,7 +39,7 @@ function handlKaspiBtn() {
   loadingKaspi.value = true
   setTimeout(() => {
     loadingKaspi.value = false
-    kaspiPay.value = true
+    // kaspiPay.value = true
   }, 1000)
 }
 
@@ -123,7 +130,15 @@ function handlePlayBtn() {
       <MyButton
         :class="['py-4', 'font-bold leading-none']"
         :loading="loadingKaspi"
-        @click="handlKaspiBtn"
+        @click="
+          () => {
+            handlKaspiBtn()
+            $router.push({
+              path: `/pay/${data.id}`,
+              query: { type: paymentMobile ? 'mobile' : 'tv' }
+            })
+          }
+        "
       >
         Оплатить через Kaspi.kz
       </MyButton>

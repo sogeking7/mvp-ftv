@@ -1,12 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import MyButton from '@/components/UI/MyButton.vue'
 
-defineProps(['modelValue', 'data'])
+const props = defineProps(['modelValue', 'data', 'payed'])
 defineEmits(['update:modelValue'])
 
 const kaspiPay = ref(false)
 const loadingKaspi = ref(false)
+
+onMounted(() => {
+  if (props.payed) {
+    kaspiPay.value = true
+  }
+})
 
 function handlKaspiBtn() {
   loadingKaspi.value = true
@@ -14,10 +20,6 @@ function handlKaspiBtn() {
     loadingKaspi.value = false
     kaspiPay.value = true
   }, 1000)
-}
-
-function handlePlayBtn() {
-  // show video
 }
 </script>
 
@@ -67,7 +69,12 @@ function handlePlayBtn() {
           <MyButton
             :class="['py-4', 'font-bold leading-none']"
             :loading="loadingKaspi"
-            @click="handlKaspiBtn"
+            @click="
+              () => {
+                handlKaspiBtn()
+                $router.push({ path: `/pay/${data.id}` })
+              }
+            "
           >
             Оплатить
           </MyButton>
