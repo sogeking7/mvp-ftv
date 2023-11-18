@@ -77,7 +77,7 @@ function handleClick() {
         >
           <p class="sm:text-xl text-black leading-none">К оплате</p>
           <p class="sm:text-xl text-black leading-none">
-            {{ isMobile() || $route.query.type === 'mobile' ? '99 ₸' : '199 ₸' }}
+            {{ isMobile() && $route.query.type === 'mobile' ? '99 ₸' : '199 ₸' }}
           </p>
         </div>
         <div
@@ -95,7 +95,7 @@ function handleClick() {
             @click="handleClick"
             class="active:bg-[rgb(59_135_202)] flex justify-center items-center hover:bg-opacity-90 rounded-[3px] sm:text-lg h-full w-full bg-[rgb(59_135_202)]"
           >
-            К оплате {{ isMobile() || $route.query.type === 'mobile' ? '99 ₸' : '199 ₸' }}
+            К оплате {{ isMobile() && $route.query.type === 'mobile' ? '99 ₸' : '199 ₸' }}
             <img v-if="loading" class="w-4 h-4 animate-spin ml-2 fill-white" src="/g/spinner.svg" />
           </button>
         </div>
