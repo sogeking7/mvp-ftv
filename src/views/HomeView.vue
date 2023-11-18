@@ -29,7 +29,6 @@ function handleCodeBtn() {
     openModal()
   }
 }
-
 </script>
 
 <template>
@@ -37,7 +36,7 @@ function handleCodeBtn() {
     :class="{
       html: openModal
     }"
-    class=" bg-no-repeat bg-cover bg-center h-screen relative w-full"
+    class="bg-no-repeat bg-cover bg-center h-screen relative w-full"
     id="hero"
   >
     <div class="absolute w-full top-0 z-10 h-screen overlay"></div>
@@ -113,7 +112,15 @@ function handleCodeBtn() {
   background-image: linear-gradient(to bottom, #12121200, #1212121a, #000);
 }
 
-#hero {
-  background-image: url('/public/desktop-bg.webp');
+@media only screen and (min-width: 320px) {
+  #hero {
+    background-image: url('/public/desktop-bg.webp');
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  #hero {
+    background-image: url('/public/mob.webp');
+  }
 }
 </style>
